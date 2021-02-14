@@ -1,0 +1,123 @@
+// For Login Page
+package deMoFramewor;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Call_OHM
+{ 
+public static void main(String[] arg)
+{
+	System.setProperty("webdriver.chrome.driver","C:\\\\\\\\Users\\\\\\\\q\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Google\\\\\\\\Chrome\\\\\\\\Application\\\\\\\\chromedriver\\\\\\\\chromedriver.exe");	
+	WebDriver d = new ChromeDriver();
+
+	d.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
+d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	d.manage().window().maximize();
+
+	OperationOHM_Login_Page o = new OperationOHM_Login_Page(d);
+	
+	o.setUname("admin");
+o.setPass("admin123");
+o.logiN();
+o.logout1();
+o.logout2();
+}
+}
+
+
+
+//For Logout Page
+package deMoFramewor;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Logoutt extends OperationOHM_Login_Page
+{
+public Logoutt(WebDriver d)
+ { 
+super(d);
+}
+public void LogoutProccess()
+   {
+	   logout1();
+	   logout2();
+   }
+
+}
+
+
+
+//For POM File
+
+package deMoFramewor;
+
+import java.util.Scanner;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class OperationOHM_Login_Page 
+{
+	
+WebDriver d; //Declaration
+public OperationOHM_Login_Page(WebDriver d)
+{
+this.d=d;
+} 
+ 
+//repositories of Web elements
+String u1;
+By uname = By.cssSelector("input#txtUsername");
+By pwd = By.cssSelector("input[type=password]");
+By logIn = By.id("btnLogin");
+By log1=By.linkText("Welcome Paul");
+By log2=By.linkText("Logout");
+
+//Repositories of method 
+public void seturl(String url) 
+{
+d.get(u1);
+}
+public void setUname(String u)
+{
+
+d.findElement(uname).sendKeys(u);
+
+}
+public void setPass(String p)
+{
+	
+d.findElement(pwd).sendKeys(p);	
+
+}
+public void logiN()
+{
+d.findElement(logIn).click(); 	
+
+}
+
+public void logout1()
+{
+	d.findElement(log1).click();
+}
+
+public void logout2()
+{
+	
+d.findElement(log2).click();
+}
+
+
+public void loginproccess(String u,String p)
+{
+	seturl(u1);
+	setUname(u);
+	setPass(p);
+	logiN();
+	logout1();
+	logout2();
+}
+}
