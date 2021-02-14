@@ -1,0 +1,306 @@
+// For POM file 
+package FrontKeyword;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class FrontAPOM 
+{
+WebDriver d;
+public FrontAPOM(WebDriver d)
+
+{
+	this.d = d;
+
+} 
+//Repositories 
+
+By User = By.xpath("/html/body/div/form/center[1]/table/tbody/tr[3]/td[2]/input");
+By Pass = By.xpath("/html/body/div/form/center[1]/table/tbody/tr[4]/td[2]/input");
+By Login = By.xpath("/html/body/div/form/center[2]/input");
+By saleS = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[1]");
+By purchasE= By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[2]");
+By Implement = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[3]");		
+By Manu = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[4]");
+By Fix = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[5]");
+By Dim = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[6]");
+By Bank = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[7]");
+By Set = By.xpath("/html/body/table[1]/tbody/tr/td/table[1]/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td/div/a[8]");
+ 
+public void userName(String u)
+{
+d.findElement(User).sendKeys(u);
+	}
+public void passWord(String p)
+{
+d.findElement(Pass).sendKeys(p);	
+
+}
+
+public void company()
+{
+	Select s = new Select(d.findElement(By.xpath("//*[@id=\"_page_body\"]/form/center[1]/table/tbody/tr[5]/td[2]/select")));	
+	s.selectByVisibleText("Squad_Automation");
+}
+
+public void LogiN() 
+{
+	d.findElement(Login).click();
+
+
+}
+
+public void S() throws Exception
+{
+	Actions a = new Actions(d);
+
+	d.findElement(saleS).click();
+	List<WebElement> menu = d.findElements(By.className("menu_option"));
+	for(int i =1;i<=menu.size()-1;i++)
+	{
+		a.moveToElement(menu.get(i)).perform();
+		Thread.sleep(200);
+		System.out.println("Elements are: "+menu.get(i).getText());
+	}
+	
+}
+
+public void P() throws Exception
+{
+	Actions a = new Actions(d);	
+	d.findElement((purchasE)).click();
+
+List<WebElement> menu1 = d.findElements(By.className("menu_option"));
+for(int i =1;i<=menu1.size()-1;i++)
+{
+	a.moveToElement(menu1.get(i)).perform();
+	Thread.sleep(200);
+	System.out.println("Elements are: "+menu1.get(i).getText());
+}
+
+}
+
+public void I() throws Exception
+{	Actions a = new Actions(d);
+	d.findElement(Implement).click();	
+
+List<WebElement> menu1 = d.findElements(By.className("menu_option"));
+for(int i =1;i<=menu1.size()-1;i++)
+{
+	a.moveToElement(menu1.get(i)).perform();
+	Thread.sleep(200);
+	System.out.println("Elements are: "+menu1.get(i).getText());
+}
+
+}
+
+public void M() throws Exception
+{	Actions a = new Actions(d);
+
+	d.findElement(Manu).click();
+	
+
+List<WebElement> menu1 = d.findElements(By.className("menu_option"));
+for(int i =1;i<=menu1.size()-1;i++)
+{
+	a.moveToElement(menu1.get(i)).perform();
+	Thread.sleep(200);
+	System.out.println("Elements are: "+menu1.get(i).getText());
+}
+
+}
+public void F() throws Exception
+{	Actions a = new Actions(d);
+	d.findElement(Fix).click();
+
+
+
+	List<WebElement> menu = d.findElements(By.className("menu_option"));
+	for(int i =1;i<=menu.size()-1;i++)
+	{
+		a.moveToElement(menu.get(i)).perform();
+		Thread.sleep(200);
+		System.out.println("Elements are: "+menu.get(i).getText());
+	}
+	
+
+	}
+public void D() throws Exception
+{	Actions a = new Actions(d);
+
+
+	d.findElement(Dim).click();
+List<WebElement> menu1 = d.findElements(By.className("menu_option"));
+for(int i =1;i<=menu1.size()-1;i++)
+{
+	a.moveToElement(menu1.get(i)).perform();
+	Thread.sleep(200);
+	System.out.println("Elements are: "+menu1.get(i).getText());
+}
+
+}
+
+public void B() throws Exception
+{
+	Actions a = new Actions(d);
+
+d.findElement(Bank).click();
+
+
+List<WebElement> menu1 = d.findElements(By.className("menu_option"));
+for(int i =1;i<=menu1.size()-1;i++)
+{
+a.moveToElement(menu1.get(i)).perform();
+Thread.sleep(200);
+System.out.println("Elements are: "+menu1.get(i).getText());
+}
+
+}
+public void S1() throws Exception 
+{
+	Actions a = new Actions(d);
+	d.findElement(Set).click();
+List<WebElement> menu = d.findElements(By.className("menu_option"));
+	for(int i =1;i<=menu.size()-1;i++)
+	{
+		a.moveToElement(menu.get(i)).perform();
+		Thread.sleep(200);
+		System.out.println("Elements are: "+menu.get(i).getText());
+	}
+}
+public void loginproccess(String u,String p) throws Exception
+{
+userName(u);
+passWord(p);
+company();
+LogiN();
+S();
+P();
+I();
+M();
+F();
+D();
+B();
+S1();
+}}
+
+
+//for Keyword driven framework
+package FrontKeyword;
+ 
+import java.awt.Desktop.Action;
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class FrontKeywordDriven
+
+ 
+{
+	public static void main(String[] arg) throws Exception
+	{
+	System.setProperty("webdriver.chrome.driver","C:\\\\\\\\Users\\\\\\\\q\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Google\\\\\\\\Chrome\\\\\\\\Application\\\\\\\\chromedriver\\\\\\\\chromedriver.exe");	
+WebDriver d = new ChromeDriver();
+
+d.get("http://frontaccounting.squadinfotech.in/");
+  
+d.manage().window().maximize();
+FrontAPOM f = new FrontAPOM(d);
+	
+FileInputStream fin = new FileInputStream("./FrontAKeywordA.xlsx");
+XSSFWorkbook w = new XSSFWorkbook(fin);
+ 
+XSSFSheet s = w.getSheet("Sheet1");
+
+
+for(int i =1;i<=s.getLastRowNum();i++)
+{
+XSSFRow rw = s.getRow(i);
+XSSFCell key = rw.getCell(1);
+
+switch(key.toString())
+{
+case "Username":
+	f.userName("frontuser1");
+System.out.println("Username");
+break;
+case "Password":
+	f.passWord("frontuser1");
+	System.out.println("frontuser"); 
+	break;
+case "Company":
+	f.company();
+	System.out.println("company");
+	break;
+	
+case "Login":
+	f.LogiN();
+	System.out.println("login");
+	
+	break;
+	
+case "Sales":
+	System.out.println("sales");
+	f.S();
+ 
+
+	break;
+case "Purchase":
+	
+	System.out.println("purchase");
+	f.P();
+	break;
+	 
+	
+case "I and I":
+	System.out.println("I and I");
+	f.I();
+	
+	break;
+	
+	case "Manufacturing":
+			f.M();
+			System.out.println("Manufacturing");		
+		break;
+	case "Fixed assests":
+		f.F();
+		System.out.println("Fixed assests");
+	break;
+		
+	case "Dimensions":
+		f.D();
+		System.out.println("Dimensions");
+		break;
+	case "B and G":
+		f.B();
+		System.out.println("B and G");
+		break;
+		
+	case "Setup":
+		f.S1();
+		System.out.println("setup");
+		break;
+default:
+	System.out.println("invalid data");
+	break;
+	
+}
+
+}
+d.close();
+	}
+	
+}
